@@ -1,2 +1,1 @@
-# demos
-demos
+#Ajax Loadmore Demos
