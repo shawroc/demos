@@ -16,10 +16,14 @@ http.createServer(function(req,res){
 		for(var i = 0; i < newsLength; i++) {
 			data.push('News' + (currentIndex+i+1));
 		};
-		setTimeout(function(){
+
+		res.end(JSON.stringify(data))
+		/*setTimeout(function(){
 			res.end(JSON.stringify(data));
 		},1500)
-		
+		模拟服务器响应延迟
+
+		*/
 		break;
 
 
@@ -27,12 +31,15 @@ http.createServer(function(req,res){
 		if(urlObj.pathname === '/') {
 			urlObj.pathname += 'index.html';
 		}
-		fs.readFile(path.join(__dirname, urlObj.pathname), function(err,data){
+		var filePath = path.join(__dirname, urlObj.pathname);
+
+		fs.readFile(filePath, 'binary',function(err,fileContent){
 			if(err){
 				res.statusCode = 404;
 				res.end('Not Found')
 			}else {
-				res.end(data)
+				res.write(fileContent, 'binary')
+				res.end()
 			}
 		})
 	}
