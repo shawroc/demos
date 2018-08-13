@@ -27,7 +27,7 @@ http.createServer(function(req,res){
 		if(urlObj.pathname === '/') {
 			urlObj.pathname += 'index.html';
 		}
-		fs.readFile(path.join(__dirname, 'static', urlObj.pathname), function(err,data){
+		fs.readFile(path.join(__dirname, urlObj.pathname), function(err,data){
 			if(err){
 				res.statusCode = 404;
 				res.end('Not Found')
