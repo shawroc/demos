@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Load More</title>
+	<style>
+		ul,li {
+			margin: 0;
+			padding: 0;
+		}
+		#ct li {
+			list-style: none;
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin: 10px;
+			cursor: pointer;
+			text-align: center;
+			font-weight: bold;
+
+		}
+		#load-more {
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			cursor: pointer;
+		}
+		.btn {
+			display: inline-block;
+			height: 40px;
+			line-height: 40px;
+			width: 120px;
+			border: 1px solid #E27272;
+			text-align: center;
+			text-decoration: none;
+			color: #E27272;
+			border-radius: 5px;
+		}
+		.btn:hover {
+			background: green;
+			color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+	<ul id="ct">
+		
+	</ul>
+	<a id="load-more" class="btn" href="#" >
+			Load More
+			<!--方法1 取消a链接的默认跳转，href='javascript:void(0)' -->
+	</a>
+	<script>
+	var btn = document.querySelector('#load-more');
+	var newsContainer = document.querySelector('#ct');
+	var pageIndex = 0;
+	var isDataArrive = true;
+
+	btn.addEventListener('click', function(mouseEvent){
+
+		mouseEvent.preventDefault();
+		if(!isDataArrive) {
+			return;
+		};
+		// preventDefault(), 取消a链接的默认事件
+
+			var xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = function(){
+
+				if(xhr.readyState === 4) {
+
+					if (xhr.status === 200 || xhr.status === 304) {
+
+					var responseData = JSON.parse(xhr.responseText);
+
+					console.log(responseData)
+
+					var nodeStock = document.createDocumentFragment();
+
+					for(var i = 0; i < responseData.length; i ++) {
+
+						var node = document.createElement('li');
+
+						node.innerText = responseData[i];
+
+						nodeStock.appendChild(node);
+					}
+
+					newsContainer.appendChild(nodeStock);
+
+					pageIndex = pageIndex + 5;
+					
+					//考虑到服务器可能响应的问题,如果pageIndex的自增放在这里会导致get到同样的数据
+
+				} else {
+					console.log('error')
+				}
+				isDataArrive = true;
+			}
+		}
+
+		xhr.open('get','/loadmore?index=' + pageIndex +'&length=5', true);
+		xhr.send();
+		isDataArrive = false;
+		//pageIndex += 5; 
+		// pageIndex 自增5放在这里，就算响应延迟，也可以确保加载相应数量的新闻
+
+	})
+
+   // get or post 接口类型，接口名字，参数是什么
+   // 我要什么
+
+
+
+	//错误写法， 重写
+	/*var ct = document.querySelector('#ct');
+	var btn = document.querySelector('#load-more');
+	var curIndex = 0;
+	var len = 5;
+	var isLoading = false;
+
+	btn.addEventListener('click', function(e){
+		e.preventDefault();
+		if(isLoading) {
+			return
+		}
+		isLoading = true;
+		ajax('/loadMore', {
+			idx: curIndex,
+			len: len
+		}, function(data){
+			appendData(data);
+			isLoading = false;
+			curIndex = curIndex + len;
+		})
+	})
+
+	function ajax(url, json, onSuccess, Onerror) {
+		var xhr = new XMLHttpRequest();
+		var arr = [];
+		for(key in json) {
+			arr.push(key +'=' + json[key])
+		}
+		url += '?' + arr.join('&')
+		xhr.open('get', url);
+		xhr.send();
+
+		xhr.onload = function () {
+			if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+				onSuccess(JSON.parse(this.response));
+			}else {
+				onError && onError()
+			};
+		};
+	};
+
+	function appendData(data) {
+		for(var i=0; i < data.length; i++) {
+			var child = document.createElement('li');
+			child.innerText = data[i];
+			ct.appendChild(child);
+		}
+	};*/
+
+	</script>
+</body>
+</html>
