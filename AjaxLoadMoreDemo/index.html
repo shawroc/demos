@@ -54,52 +54,34 @@
 	var btn = document.querySelector('#load-more');
 	var newsContainer = document.querySelector('#ct');
 	var pageIndex = 0;
-	var isDataArrive = true;
-
+	var isDataArrive = true;// 添加一个状态标记
 	btn.addEventListener('click', function(mouseEvent){
-
 		mouseEvent.preventDefault();
 		if(!isDataArrive) {
 			return;
 		};
 		// preventDefault(), 取消a链接的默认事件
-
 			var xhr = new XMLHttpRequest();
-
 			xhr.onreadystatechange = function(){
-
 				if(xhr.readyState === 4) {
-
 					if (xhr.status === 200 || xhr.status === 304) {
-
 					var responseData = JSON.parse(xhr.responseText);
-
 					console.log(responseData)
-
 					var nodeStock = document.createDocumentFragment();
-
 					for(var i = 0; i < responseData.length; i ++) {
-
 						var node = document.createElement('li');
-
 						node.innerText = responseData[i];
-
 						nodeStock.appendChild(node);
 					}
-
 					newsContainer.appendChild(nodeStock);
-
-					pageIndex = pageIndex + 5;
-					
+					pageIndex = pageIndex + 5;			
 					//考虑到服务器可能响应的问题,如果pageIndex的自增放在这里会导致get到同样的数据
-
 				} else {
 					console.log('error')
 				}
 				isDataArrive = true;
 			}
 		}
-
 		xhr.open('get','/loadmore?index=' + pageIndex +'&length=5', true);
 		xhr.send();
 		isDataArrive = false;

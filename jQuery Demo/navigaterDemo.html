@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        list-style: none;
+        text-decoration: none;
+        padding: 0;
+        margin: 0;
+    }
+    .v-nav-bar {
+        width: 180px;
+        background-color: #de0011;
+        margin: 8px;
+    }
+    .nav-CT {
+        position: relative;
+    }
+    .v-nav-bar .nav-title {
+        display: block;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid rgb(90, 7, 7);
+        text-align: center;
+        padding: 16px;
+        margin: 0 16px;
+    }
+    .v-nav-bar .title-details {
+        position: absolute;
+        width: 180px;
+        top: 0;
+        left: 180px;
+        background-color:#eee;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        text-align: center;
+        display: none;
+    }
+    .v-nav-bar .title-details > li {
+        width: 70px;
+        padding: 10px;
+        float: left;
+    }
+    .v-nav-bar .title-details > li > a {
+        color: red;
+    }
+
+    .v-nav-bar .title-details > li > a:hover {
+         color: #ff00aa;
+     }
+    </style>
+</head>
+<body>
+    <div class="v-nav-bar">
+        <ul class="nav-CT">
+            <a href="" class="nav-title">Jewelry</a>
+            <ul class="title-details">
+                <li><a href="">Jadeite</a></li>
+                <li><a href="">Jade</a></li>
+                <li><a href="">Diamond</a></li>
+                <li><a href="">Pearl</a></li>
+                <li><a href="">Amber</a></li>
+                <li><a href="">Crystal</a></li>
+            </ul>   
+        </ul>
+        <ul class="nav-CT">
+            <a href="" class="nav-title">Clothing</a>
+            <ul class="title-details">
+                <li><a href="">Fashion</a></li>
+                <li><a href="">Vintage</a></li>
+                <li><a href="">Sexy</a></li>
+                <li><a href="">Elegant</a></li>
+            </ul>   
+        </ul>
+        <ul class="nav-CT">
+            <a href="" class="nav-title">Beauty Care</a>
+            <ul class="title-details">
+                <li><a href="">Jadeite</a></li>
+                <li><a href="">Jade</a></li>
+                <li><a href="">Diamond</a></li>
+                <li><a href="">Pearl</a></li>
+            </ul>   
+        </ul>
+        <ul class="nav-CT">
+            <a href="" class="nav-title">Sports</a>
+            <ul class="title-details">
+                <li><a href="">Yoga</a></li>
+                <li><a href="">Running</a></li>
+                <li><a href="">Swinging</a></li>
+                <li><a href="">Riding</a></li>
+            </ul>   
+        </ul>
+    </div>
+    <script>
+    //分析navigator demo的实现
+    /* 
+    当鼠标移入导航菜单主选项，主选项显示该主选项下的子类目。
+    通过CSS样式，控制子类目的隐藏或者展示。鼠标移入显示，鼠标移出隐藏。
+     */
+    $('.nav-CT').on('mouseenter', function () {
+        $(this).find('.title-details').show();
+    });
+
+    $('.nav-CT').on('mouseleave', function () {
+        $(this).find('.title-details').hide();
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style type="text/css">
+        * {
+            list-style: none;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+        }
+        .prod-area {
+            width: 800px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            background-color:whitesmoke;
+        }
+        
+        .prod-menu {
+            text-align: center;
+            word-spacing: -2px;
+            border-bottom: 1px solid #ddd;
+        }
+        .prod-menu .menu-option {
+            display: inline-block;
+            color: white;
+            padding: 8px;
+            background-color: plum;
+            width: 200px;
+            border-radius: 8px;
+            margin: 16px;
+        }
+
+        .prod-menu .menu-option a {
+            color: white;
+        }
+        .clearfix:after {
+            content:"";
+            display: block;
+            clear: both; 
+        }
+        .prod-items .prod-items-details {
+            float: left;
+            width: 238px;
+            margin-left: 20px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            position: relative;
+        }
+        .prod-items .items-pic img {
+            width: 238px;
+            height: 238px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        .prod-items .items-title {
+            display: block;
+            color: black;
+            padding: 8px 0;
+        }
+        .prod-items .items-price {
+            color: green;
+            font-weight: bold;
+            display: block;
+            padding-bottom: 8px;
+        }
+        .prod-items .btn {
+            color: red;
+            position: absolute;
+            width: 80px;
+            padding: 8px;
+            background: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid plum;
+            border-radius: 8px;
+        }
+        .prod-menu .menu-option.active {
+            background-color: #ff0033;
+        }
+        .prod-menu .menu-option a.active {
+            background-color: white;
+        }
+        .prod-items {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .cover {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            position: absolute;
+            transition: all 0.3s;
+            border-radius: 16px;
+            opacity: 0;
+        }
+        .hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="prod-area">
+        <ul class="prod-menu clearfix">
+                <li class="menu-option"><a href="javascript:void(0)">Hot Sales</a></li>
+                <li class="menu-option"><a href="javascript:void(0)">Jewelry</a></li>
+                <li class="menu-option"><a href="javascript:void(0)">Luxury</a></li>
+        </ul>
+        <ul class="prod-items clearfix active">
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+        </ul>
+        <ul class="prod-items clearfix">
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+        </ul>
+        <ul class="prod-items clearfix">
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+        </ul>
+    </div>
+    <div class="prod-area">
+        <ul class="prod-menu clearfix">
+                <li class="menu-option"><a href="javascript:void(0)">Hot Sales</a></li>
+                <li class="menu-option"><a href="javascript:void(0)">Jewelry</a></li>
+                <li class="menu-option"><a href="javascript:void(0)">Luxury</a></li>
+        </ul>
+        <ul class="prod-items clearfix active">
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535392457096&di=768380d3f10e4f87d15f6072efe002b2&imgtype=0&src=http%3A%2F%2Fwww.62a.net%2Ftbimg%2Fimg3%2Ftfscom%2Fi1%2FTB1ULpEKVXXXXXYaXXXXXXXXXXX_%2521%25210-item_pic.jpg_290x290.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+        </ul>
+        <ul class="prod-items clearfix">
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://www.jewellery.org.cn/Upload/RTF/20121213/2012-12-13-002a022555-c092-4bf6-bf18-592ffafa0f4e.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+        </ul>
+        <ul class="prod-items clearfix">
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+                <li class="prod-items-details">
+                        <div class="cover"><a href="" class="btn">Buy Now</a></div>
+                        <a href="" class="items-pic"><img src="http://img.5lux.com.cn/510/images/upload/Image/goods/01%28579%29.jpg" alt="hot sales"></a>
+                        <a href="" class="items-title">Chinese Vintage Hair Clip</a>
+                        <a href="" class="items-price">$ 16.99</a>
+                </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $('.prod-menu .menu-option').on('click', function(e){
+            var $curElement = $(this);
+            var elementIndex = $curElement.index();
+            $curElement.siblings().removeClass('active');
+            $curElement.addClass('active');
+            $curElement.parents('.prod-area').find('.prod-items').removeClass('active');
+            $curElement.parents('.prod-area').find('.prod-items').eq(elementIndex).addClass('active');
+        });
+
+        $('.prod-items .prod-items-details').on('mouseenter', function(e) {
+            var $this  = $(this);
+            $this.find('.cover').addClass('hover');
+        });
+
+        $('.prod-items .prod-items-details').on('mouseleave', function(e) {
+            var $this  = $(this);
+            $this.find('.cover').removeClass('hover');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab-Translation-Slide-Show</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <style type="text/css">
+        * {
+            list-style: none;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .slide-show {
+            width: 800px;
+            border: 1px solid #ccc;
+            margin: 16px auto;
+        }
+        .slide-show-tabs > li {
+            float: left;
+            width: 20%;
+            background-color: #ddd;
+            border-right: 1px solid #fff;
+            text-align: center;
+            padding: 16px 0;
+        }
+        
+        .slide-show-tabs li:last-child {
+            border-right: none;
+        }
+        
+        .slide-show-content {
+            width: 800px;
+            overflow: hidden;
+        }
+        .slide-show-content .slide-show-content-wrap {
+            width: 4000px;
+        }
+        .slide-show-content-wrap > li {
+            width: 800px;
+            height: 600px;
+            float: left;
+            position: relative;
+        }
+        .slide-show-content-wrap li img {
+            width: 800px;
+            height: 600px;
+        }
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .active {
+            background-color: #888;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-show">
+        <ul class="slide-show-tabs clearfix">
+            <li>Coding</li>
+            <li>Design</li>
+            <li>Drawing</li>
+            <li>Reading</li>
+            <li>Sports</li>
+        </ul>
+        <ul class="slide-show-content">
+            <div class="slide-show-content-wrap">
+                <li><img src="http://i.huffpost.com/gen/4784786/images/o-CODING-facebook.jpg" alt="Coding"></li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </li>
+                <li><img src="http://designspinners.com/wp-content/uploads/2013/12/RMS-Brochure-Inside.jpg" alt="Design"></li>
+                <li><img src="https://tse4-mm.cn.bing.net/th?id=OIP.vW61oHjuQMeEPGIsONTpjQHaHa&pid=Api" alt="Drawing"></li>
+                <li><img src="http://whytoread.com/wp-content/uploads/2014/09/Reading.jpg" alt="Reading"></li>
+                <li><img src="https://tse4-mm.cn.bing.net/th?id=OIP.ByhpzJgY-844sEUcEY7JDgHaEK&pid=Api" alt="Sports"></li>
+            </div>
+        </ul>
+
+    </div>
+    <script type="text/javascript">
+       $('.slide-show-tabs').on('click','li', function (e) {
+            var $this = $(this);
+            var index = $this.index();
+            var width = $('.slide-show-content').find('.slide-show-content-wrap li').width();
+            $this.addClass('active').siblings().removeClass('active');
+            $this.parents('.slide-show').find('.slide-show-content li').animate({
+                left: -width*index
+            },500)
+       });
+    </script>
+</body>
+</html>

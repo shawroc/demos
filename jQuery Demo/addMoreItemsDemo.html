@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addMoreItemsDemo</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        * {
+            list-style: none;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+        }
+        .product-area {
+            width: 800px;
+            border: 1px solid #ccc;
+            margin: 16px auto;
+            border-radius: 8px 16px;
+        }
+        .product-area .product-catagory-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #999;
+            padding: 16px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .product-items-area .product-items-details {
+            float: left;
+            text-align: center;
+            width: 238px;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+            margin: 16px 0 16px 20px;
+            position: relative;
+            
+        }
+        .product-items-details .product-items-pic {
+            width: 238px;
+            height: 238px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        .product-items-details .product-items-title {
+            margin: 16px 0;
+        }
+        .product-items-details .product-items-title a {
+            color: black;
+        }
+        .product-items-details .product-items-price {
+            margin: 16px 0;
+        }
+        .product-items-details .product-items-price a {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+        .product-items-details .cover a{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: red;
+            border: 1px solid #ddd;
+            background-color: #eee;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+        .cover {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            position: absolute;
+            border-radius: 16px;
+            opacity: 0;
+        }
+        .hover {
+            opacity: 1;
+        }
+        .addMoreButton {
+            width: 100px;
+            display: block;
+            margin: 16px auto;
+            color: red;
+            padding: 16px;
+            background-color: #ddd;
+            border-radius: 8px 16px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        .clearfix:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-area">
+        <div class="product-catagory-title"><a>Jewelry</a></div>
+        <ul class="product-items-area clearfix">
+            <li class="product-items-details">
+                <div class="cover"><a href="">Buy Now</a></div>
+                <img class="product-items-pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535458446435&di=0aea2f0f0c67f904fb064dcecc02558b&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170213%2Fc8aa63b45a8645bc900e81eb170725f3_th.jpg" alt="item pic">
+                <p class="product-items-title"><a href="">China Vintage Accessories</a></p>
+                <p class="product-items-price"><a href="">$ 21.99</a></p>
+            </li>
+            <li class="product-items-details">
+                <div class="cover"><a href="">Buy Now</a></div>
+                <img class="product-items-pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535458561719&di=a0db6f89810e11ff6096f97cb2dc07a3&imgtype=0&src=http%3A%2F%2Fimg32.ddimg.cn%2F90%2F11%2F1255378302-4_e.jpg" alt="item pic">
+                <p class="product-items-title"><a href="">China Vintage Accessories</a></p>
+                <p class="product-items-price"><a href="">$ 21.99</a></p>
+            </li>
+            <li class="product-items-details">
+                <div class="cover"><a href="">Buy Now</a></div>
+                <img class="product-items-pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535458586344&di=0a9dfd18c2f2e27f14cc82912c1675f6&imgtype=0&src=http%3A%2F%2Fs9.sinaimg.cn%2Fmw690%2F006yZceczy75iNjdCsM38%26690" alt="item pic">
+                <p class="product-items-title"><a href="">China Vintage Accessories</a></p>
+                <p class="product-items-price"><a href="">$ 21.99</a></p>
+            </li>
+            <li class="product-items-details">
+                <div class="cover"><a href="">Buy Now</a></div>
+                <img class="product-items-pic" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=702117438,1480620145&fm=15&gp=0.jpg" alt="item pic">
+                <p class="product-items-title"><a href="">China Vintage Accessories</a></p>
+                <p class="product-items-price"><a href="">$ 21.99</a></p>
+            </li>
+            <li class="product-items-details">
+                <div class="cover"><a href="">Buy Now</a></div>
+                <img class="product-items-pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535458663339&di=bdc1d103515fc7ca254c6504c2e301d3&imgtype=0&src=http%3A%2F%2Fimg002.file.rongbiz.cn%2Fuploadfile%2F201307%2F31%2F08%2F15-14-79719.jpg" alt="item pic">
+                <p class="product-items-title"><a href="">China Vintage Accessories</a></p>
+                <p class="product-items-price"><a href="">$ 21.99</a></p>
+            </li>
+            <li class="product-items-details">
+                <div class="cover"><a href="">Buy Now</a></div>
+                <img class="product-items-pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535535131319&di=1cfa57564d52c07ff8312b7801cd1618&imgtype=0&src=http%3A%2F%2Fwww.jewellery.org.cn%2FUpload%2FRTF%2F20121213%2F2012-12-13-3741db78db-804b-43ee-8b23-233f014908c4.jpg" alt="item pic">
+                <p class="product-items-title"><a href="">China Vintage Accessories</a></p>
+                <p class="product-items-price"><a href="">$ 21.99</a></p>
+            </li>
+        </ul>
+    </div>
+    <a href="javascript:void(0)" class="addMoreButton">Add More</a>
+    <script>
+        var products = [
+            {
+                img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535538163243&di=fa59b48477535bddedde3bf4c3017886&imgtype=0&src=http%3A%2F%2Fwww.5jihua.com%2Fimages%2F20121024%2F437000cd3d6bb489.jpg',
+                name: 'Chinese Vintage Hair Cilps',
+                price: '$ 88'
+            },{
+                img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535538227851&di=69565de69c574940e5831fa126bb700c&imgtype=0&src=http%3A%2F%2Ftgi12.jia.com%2F118%2F914%2F18914115.jpg',
+                name: 'Chinse Vintage Gold Ring',
+                price: '$ 666'
+            },{
+                img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535538335460&di=16e2eb47c64897d25aac6bf342e4a372&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2017%2F05%2F11%2F6fa114f19f99dded_0.jpg',
+                name: 'Chinese Vintage Gold Chain',
+                price: '$ 888'
+            }
+        ];
+
+        function combinateHtml(productInfo) {
+            var html = '<li class="product-items-details">';
+            html += '<div class="cover"><a href="">Buy Now</a></div>';
+            html += '<img class="product-items-pic" src="' + productInfo.img + '"' + 'alt="item pic">';
+            html += '<p class="product-items-title"><a href="">' + productInfo.name + '</a></p>';
+            html += '<p class="product-items-price"><a href="">' + productInfo.price + '</a></p>'
+            return html;
+        };
+
+        var $addMoreButton = $('.addMoreButton');
+        $addMoreButton.on('click' , function(e) {
+            //e.preventDefault;
+            console.log($(this));
+            $.each(products, (index, productInfo) => {
+                var html = combinateHtml(productInfo);
+                $('.product-items-area').append(html);
+            });
+        });
+        
+        $('.product-items-area').on('mouseenter', '.product-items-details', function(e) {
+            e.preventDefault();
+            $(this).find('.cover').addClass('hover');
+        });
+
+        $('.product-items-area').on('mouseleave', '.product-items-details', function(e) {
+            
+            $(this).find('.cover').removeClass('hover');
+        })
+
+    </script>
+</body>
+</html>
